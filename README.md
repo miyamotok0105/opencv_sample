@@ -16,3 +16,7 @@ OpenCV.jp : OpenCV逆引きリファレンス
 http://opencv.jp/cookbook/index.html    
 
 
+gcc(g++)について    
+https://www.sist.ac.jp/~suganuma/cpp/man/command/gcc.htm    
+
+
