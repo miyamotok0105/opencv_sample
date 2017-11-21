@@ -15,10 +15,10 @@
 
 //ここのビルドは通るのか。。　エフェクトの部分がエラーになってるよ？
 // Accelerate-optimized functions
-int cvtColor_Accelerate(const cv::Mat& src, cv::Mat& dst,
-                        cv::Mat buff1, cv::Mat buff2);
-
-int equalizeHist_Accelerate(const cv::Mat& src, cv::Mat& dst);
+//int cvtColor_Accelerate(const cv::Mat& src, cv::Mat& dst,
+//                        cv::Mat buff1, cv::Mat buff2);
+//
+//int equalizeHist_Accelerate(const cv::Mat& src, cv::Mat& dst);
 
 
 #endif /* test_hpp */

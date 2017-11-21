@@ -20,3 +20,8 @@ https://qiita.com/gun534/items/042bcbaa7bc5051bec09
 
 http://mslgt.hatenablog.com/entry/2014/08/31/001443
 
+- [opencv2/highgui/cap_ios.h]が[opencv2/videoio/cap_ios.h]に変わっている
+
+https://stackoverflow.com/questions/28310511/how-to-build-an-xcode-6-ios-app-that-uses-opencv-error-cplusplus-is-not-defi
+
+

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3PF-qr-aNL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ob8-yO-NVs">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,6 +80,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rhd-n6-urn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1536.8" y="28.335832083958024"/>
+        </scene>
+        <!--Detecting Facial Features View Controller-->
+        <scene sceneID="N7T-dR-4UW">
+            <objects>
+                <viewController id="Ob8-yO-NVs" customClass="DetectingFacialFeaturesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aev-Dq-z5A">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxS-2M-b31">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                            </imageView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ai-Gd-Iau">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="Start capture" id="fsy-b8-yz2">
+                                        <connections>
+                                            <action selector="startCaptureButtonPressed:" destination="Ob8-yO-NVs" id="PlJ-Hm-7Oq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="Stop capture" id="kF8-l1-DcF">
+                                        <connections>
+                                            <action selector="stopCaptureButtonPressed:" destination="Ob8-yO-NVs" id="Pie-gP-V6Z"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="2ai-Gd-Iau" firstAttribute="leading" secondItem="aev-Dq-z5A" secondAttribute="leading" id="2nY-De-m0v"/>
+                            <constraint firstItem="2ai-Gd-Iau" firstAttribute="top" secondItem="hxS-2M-b31" secondAttribute="bottom" id="IqN-MY-L25"/>
+                            <constraint firstItem="2ai-Gd-Iau" firstAttribute="bottom" secondItem="aev-Dq-z5A" secondAttribute="bottom" id="Kll-Uc-M6z"/>
+                            <constraint firstItem="hxS-2M-b31" firstAttribute="trailing" secondItem="aev-Dq-z5A" secondAttribute="trailing" id="MdS-Ls-rbK"/>
+                            <constraint firstItem="hxS-2M-b31" firstAttribute="leading" secondItem="aev-Dq-z5A" secondAttribute="leading" id="O9V-8k-5GF"/>
+                            <constraint firstItem="hxS-2M-b31" firstAttribute="top" secondItem="aev-Dq-z5A" secondAttribute="top" id="kUI-zC-Iz9"/>
+                            <constraint firstItem="2ai-Gd-Iau" firstAttribute="trailing" secondItem="aev-Dq-z5A" secondAttribute="trailing" id="od8-kx-swb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="39a-Or-h9F"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="hxS-2M-b31" id="deK-g3-juf"/>
+                        <outlet property="startCaptureButton" destination="fsy-b8-yz2" id="oGW-PF-gms"/>
+                        <outlet property="stopCaptureButton" destination="kF8-l1-DcF" id="6Fj-Xr-SBm"/>
+                        <outlet property="toolbar" destination="2ai-Gd-Iau" id="KEQ-om-qYx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lVB-8K-a2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2362" y="23"/>
         </scene>
     </scenes>
 </document>
