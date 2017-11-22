@@ -56,7 +56,9 @@ static bool FaceSizeComparer(const Rect& r1, const Rect& r2)
 
 void FaceAnimator::PreprocessToGray(Mat& frame)
 {
+    //cvtColor：画像の色空間を変換
     cvtColor(frame, grayFrame_, CV_RGBA2GRAY);
+    //equalizeHist：グレースケール画像のヒストグラムを均一化
     equalizeHist(grayFrame_, grayFrame_);
 }
 
@@ -73,7 +75,7 @@ void FaceAnimator::PreprocessToGray_optimized(Mat& frame)
 void FaceAnimator::detectAndAnimateFaces(Mat& frame)
 {
 //    TS(Preprocessing);
-    //PreprocessToGray(frame);
+    PreprocessToGray(frame);
     PreprocessToGray_optimized(frame);
 //    TE(Preprocessing);
     
@@ -93,6 +95,7 @@ void FaceAnimator::detectAndAnimateFaces(Mat& frame)
         Mat faceROI = grayFrame_( faces[i] );
         
         std::vector<Rect> facialFeature;
+        //２分の１でメガネ。２分の１でヒゲが出る。。。。
         if (i % 2 == 0)
         {// Detect eyes
             Point origin(0, faces[i].height/4);
@@ -104,9 +107,10 @@ void FaceAnimator::detectAndAnimateFaces(Mat& frame)
                                                      facialFeature, 1.1, 2, CV_HAAR_FIND_BIGGEST_OBJECT,
                                                      Size(faces[i].width * 0.55, faces[i].height * 0.13));
 //            TE(DetectEyes);
-            
+            //顔が検出された時
             if (facialFeature.size())
             {
+                //画像を貼り付ける
 //                TS(DrawGlasses);
                 putImage(frame, parameters_.glasses, maskOrig_,
                          faces[i], facialFeature[0] + origin, -0.1f);
@@ -115,6 +119,7 @@ void FaceAnimator::detectAndAnimateFaces(Mat& frame)
         }
         else
         {// Detect mouth
+            //精度悪し・・・
             Point origin(0, faces[i].height/2);
             Mat mouthArea = faceROI(Rect(origin,
                                          Size(faces[i].width, faces[i].height/2)));

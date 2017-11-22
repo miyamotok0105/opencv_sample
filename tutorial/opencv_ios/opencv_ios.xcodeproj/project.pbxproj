@@ -36,6 +36,10 @@
 		CE098F251FC317E500F0AAA1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE098F241FC317E500F0AAA1 /* CoreGraphics.framework */; };
 		CE098F271FC317F000F0AAA1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE098F261FC317F000F0AAA1 /* QuartzCore.framework */; };
 		CE098F2A1FC319B700F0AAA1 /* DetectingFacialFeaturesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE098F291FC319B700F0AAA1 /* DetectingFacialFeaturesViewController.mm */; };
+		CE098F2E1FC4E55900F0AAA1 /* DetectingFacesViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE098F2D1FC4E55900F0AAA1 /* DetectingFacesViewController.mm */; };
+		CE098F311FC4F99100F0AAA1 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = CE098F301FC4F99000F0AAA1 /* haarcascade_frontalface_alt.xml */; };
+		CE098F341FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE098F331FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm */; };
+		CE098F371FC4FA1E00F0AAA1 /* PostcardPrinter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE098F351FC4FA1E00F0AAA1 /* PostcardPrinter.cpp */; };
 		CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */; };
 		CEEDBB621FC1D8000062DCAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB611FC1D8000062DCAF /* ViewController.swift */; };
 		CEEDBB651FC1D8000062DCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEDBB631FC1D8000062DCAF /* Main.storyboard */; };
@@ -94,6 +98,13 @@
 		CE098F261FC317F000F0AAA1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CE098F281FC319B700F0AAA1 /* DetectingFacialFeaturesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectingFacialFeaturesViewController.h; sourceTree = "<group>"; };
 		CE098F291FC319B700F0AAA1 /* DetectingFacialFeaturesViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DetectingFacialFeaturesViewController.mm; sourceTree = "<group>"; };
+		CE098F2C1FC4E55900F0AAA1 /* DetectingFacesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetectingFacesViewController.h; sourceTree = "<group>"; };
+		CE098F2D1FC4E55900F0AAA1 /* DetectingFacesViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = DetectingFacesViewController.mm; sourceTree = "<group>"; };
+		CE098F301FC4F99000F0AAA1 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
+		CE098F321FC4FA1300F0AAA1 /* PrintingPostcardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintingPostcardViewController.h; sourceTree = "<group>"; };
+		CE098F331FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PrintingPostcardViewController.mm; sourceTree = "<group>"; };
+		CE098F351FC4FA1E00F0AAA1 /* PostcardPrinter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PostcardPrinter.cpp; sourceTree = "<group>"; };
+		CE098F361FC4FA1E00F0AAA1 /* PostcardPrinter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PostcardPrinter.hpp; sourceTree = "<group>"; };
 		CEEDBB5C1FC1D8000062DCAF /* opencv_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opencv_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDBB611FC1D8000062DCAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +233,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CE098F2B1FC4E50300F0AAA1 /* 04_DetectingFaces */ = {
+			isa = PBXGroup;
+			children = (
+				CE098F301FC4F99000F0AAA1 /* haarcascade_frontalface_alt.xml */,
+				CE098F2C1FC4E55900F0AAA1 /* DetectingFacesViewController.h */,
+				CE098F2D1FC4E55900F0AAA1 /* DetectingFacesViewController.mm */,
+			);
+			path = 04_DetectingFaces;
+			sourceTree = "<group>";
+		};
+		CE098F2F1FC4F88A00F0AAA1 /* 05_PrintingPostcard */ = {
+			isa = PBXGroup;
+			children = (
+				CE098F361FC4FA1E00F0AAA1 /* PostcardPrinter.hpp */,
+				CE098F351FC4FA1E00F0AAA1 /* PostcardPrinter.cpp */,
+				CE098F321FC4FA1300F0AAA1 /* PrintingPostcardViewController.h */,
+				CE098F331FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm */,
+			);
+			path = 05_PrintingPostcard;
+			sourceTree = "<group>";
+		};
 		CEEDBB531FC1D8000062DCAF = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +277,8 @@
 				CE04AB041FC1EBD90049163F /* image */,
 				CEEDBB781FC1D8F60062DCAF /* 02_DisplayingImage */,
 				CE04AB0D1FC1F5380049163F /* 03_LinkingOpenCV */,
+				CE098F2B1FC4E50300F0AAA1 /* 04_DetectingFaces */,
+				CE098F2F1FC4F88A00F0AAA1 /* 05_PrintingPostcard */,
 				CE04AB141FC1F9B80049163F /* 15_DetectingFacialFeatures */,
 				CE04AB161FC1FA7E0049163F /* 16_CvEffects */,
 				CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */,
@@ -342,6 +376,7 @@
 				CE098F091FC1FCB000F0AAA1 /* haarcascade_mcs_mouth.xml in Resources */,
 				CE04AB061FC1EBEF0049163F /* lena.png in Resources */,
 				CE098F071FC1FCB000F0AAA1 /* haarcascade_mcs_eyepair_big.xml in Resources */,
+				CE098F311FC4F99100F0AAA1 /* haarcascade_frontalface_alt.xml in Resources */,
 				CE098F0B1FC1FCB000F0AAA1 /* lbpcascade_frontalface.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +388,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE098F2E1FC4E55900F0AAA1 /* DetectingFacesViewController.mm in Sources */,
+				CE098F371FC4FA1E00F0AAA1 /* PostcardPrinter.cpp in Sources */,
 				CE04AB021FC1E87B0049163F /* DisplayingImageViewController.swift in Sources */,
 				CE04AB0A1FC1F2050049163F /* DisplayingImageObcViewController.m in Sources */,
 				CE098EF51FC1FB9F00F0AAA1 /* RetroFilter.cpp in Sources */,
@@ -364,6 +401,7 @@
 				CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */,
 				CE098EFD1FC1FC5B00F0AAA1 /* Processing_NEON.cpp in Sources */,
 				CE098EFC1FC1FC5B00F0AAA1 /* Processing_Accelerate.cpp in Sources */,
+				CE098F341FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm in Sources */,
 				CE098F2A1FC319B700F0AAA1 /* DetectingFacialFeaturesViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

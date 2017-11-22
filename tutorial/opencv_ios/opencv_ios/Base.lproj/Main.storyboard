@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ob8-yO-NVs">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KWt-Hi-soY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -130,6 +130,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lVB-8K-a2n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2362" y="23"/>
+        </scene>
+        <!--Detecting Faces View Controller-->
+        <scene sceneID="1m6-Bb-UGk">
+            <objects>
+                <viewController id="AEI-S9-cNL" customClass="DetectingFacesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zfU-Ab-ybl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-tP-hQ6">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="OSN-tP-hQ6" firstAttribute="bottom" secondItem="zfU-Ab-ybl" secondAttribute="bottom" id="2Xj-ZV-cRh"/>
+                            <constraint firstItem="OSN-tP-hQ6" firstAttribute="leading" secondItem="zfU-Ab-ybl" secondAttribute="leading" id="UpC-Vx-8cO"/>
+                            <constraint firstItem="OSN-tP-hQ6" firstAttribute="top" secondItem="zfU-Ab-ybl" secondAttribute="top" id="rpe-72-HDp"/>
+                            <constraint firstItem="OSN-tP-hQ6" firstAttribute="trailing" secondItem="zfU-Ab-ybl" secondAttribute="trailing" id="zpJ-o5-J0U"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bbB-A2-Hww"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="OSN-tP-hQ6" id="L4v-DH-Dta"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O02-5Y-NXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3164" y="23"/>
+        </scene>
+        <!--Printing Postcard View Controller-->
+        <scene sceneID="Ql0-we-xQq">
+            <objects>
+                <viewController id="KWt-Hi-soY" customClass="PrintingPostcardViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JXZ-hw-jkK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Fd-3M-EuO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="1Fd-3M-EuO" firstAttribute="trailing" secondItem="JXZ-hw-jkK" secondAttribute="trailing" id="8ft-bf-irz"/>
+                            <constraint firstItem="1Fd-3M-EuO" firstAttribute="leading" secondItem="JXZ-hw-jkK" secondAttribute="leading" id="TUQ-On-pQ4"/>
+                            <constraint firstItem="1Fd-3M-EuO" firstAttribute="top" secondItem="JXZ-hw-jkK" secondAttribute="top" id="g0w-6y-7ED"/>
+                            <constraint firstItem="1Fd-3M-EuO" firstAttribute="bottom" secondItem="JXZ-hw-jkK" secondAttribute="bottom" id="l84-gQ-4jp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="84l-Qe-Xns"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1Fd-3M-EuO" id="UN7-ws-u5o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWm-Mb-3xB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3947" y="20"/>
         </scene>
     </scenes>
 </document>
