@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KWt-Hi-soY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4af-au-FVm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -188,6 +188,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWm-Mb-3xB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3947" y="20"/>
+        </scene>
+        <!--Camera Obc View Controller-->
+        <scene sceneID="yzF-kJ-czx">
+            <objects>
+                <viewController id="4af-au-FVm" customClass="CameraObcViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wMg-Rq-eUX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E5R-yK-ZEw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="609"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Va-CC-hLw">
+                                <rect key="frame" x="213" y="617" width="31" height="30"/>
+                                <state key="normal" title="stop"/>
+                                <connections>
+                                    <action selector="btnCameraStop:" destination="4af-au-FVm" eventType="touchUpInside" id="RYU-Rz-u8s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CVj-87-6cH">
+                                <rect key="frame" x="112" y="617" width="32" height="30"/>
+                                <state key="normal" title="start"/>
+                                <connections>
+                                    <action selector="btnCameraStart:" destination="4af-au-FVm" eventType="touchUpInside" id="GPK-rr-TwE"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CVj-87-6cH" firstAttribute="leading" secondItem="udM-ZN-YYk" secondAttribute="leading" constant="112" id="C3A-DS-9lF"/>
+                            <constraint firstItem="E5R-yK-ZEw" firstAttribute="top" secondItem="wMg-Rq-eUX" secondAttribute="top" id="FfZ-dq-kWf"/>
+                            <constraint firstItem="CVj-87-6cH" firstAttribute="baseline" secondItem="1Va-CC-hLw" secondAttribute="baseline" id="To8-CT-48Y"/>
+                            <constraint firstAttribute="bottom" secondItem="CVj-87-6cH" secondAttribute="bottom" constant="20" symbolic="YES" id="g7K-GX-zpY"/>
+                            <constraint firstItem="1Va-CC-hLw" firstAttribute="leading" secondItem="CVj-87-6cH" secondAttribute="trailing" constant="69" id="hjx-a7-4ny"/>
+                            <constraint firstItem="E5R-yK-ZEw" firstAttribute="leading" secondItem="wMg-Rq-eUX" secondAttribute="leading" id="jys-eI-l8h"/>
+                            <constraint firstItem="CVj-87-6cH" firstAttribute="top" secondItem="E5R-yK-ZEw" secondAttribute="bottom" constant="8" symbolic="YES" id="ygg-sO-mem"/>
+                            <constraint firstAttribute="trailing" secondItem="E5R-yK-ZEw" secondAttribute="trailing" id="zul-Cu-2ka"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="udM-ZN-YYk"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="E5R-yK-ZEw" id="VfD-EN-eZt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PPM-8n-jE3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4892" y="9.4452773613193415"/>
+        </scene>
+        <!--Sub Image View Controller-->
+        <scene sceneID="aVx-xp-Fqt">
+            <objects>
+                <viewController id="1tV-yF-yqw" customClass="SubImageViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="txm-xB-LMt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="MY1-Ba-gj2"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MiA-ne-Oeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5755" y="10"/>
         </scene>
     </scenes>
 </document>

@@ -40,6 +40,11 @@
 		CE098F311FC4F99100F0AAA1 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = CE098F301FC4F99000F0AAA1 /* haarcascade_frontalface_alt.xml */; };
 		CE098F341FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = CE098F331FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm */; };
 		CE098F371FC4FA1E00F0AAA1 /* PostcardPrinter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CE098F351FC4FA1E00F0AAA1 /* PostcardPrinter.cpp */; };
+		CE098F901FC6BF7F00F0AAA1 /* CameraObcViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F8F1FC6BF7F00F0AAA1 /* CameraObcViewController.m */; };
+		CE098F931FC6C11500F0AAA1 /* MediaToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE098F911FC6C11400F0AAA1 /* MediaToolbox.framework */; };
+		CE098F941FC6C11500F0AAA1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE098F921FC6C11500F0AAA1 /* MediaPlayer.framework */; };
+		CE098F9A1FC6CE5C00F0AAA1 /* SubImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F991FC6CE5C00F0AAA1 /* SubImageView.m */; };
+		CE098F9D1FC6D9E200F0AAA1 /* SubImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F9C1FC6D9E100F0AAA1 /* SubImageViewController.m */; };
 		CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */; };
 		CEEDBB621FC1D8000062DCAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB611FC1D8000062DCAF /* ViewController.swift */; };
 		CEEDBB651FC1D8000062DCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEDBB631FC1D8000062DCAF /* Main.storyboard */; };
@@ -105,6 +110,14 @@
 		CE098F331FC4FA1300F0AAA1 /* PrintingPostcardViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PrintingPostcardViewController.mm; sourceTree = "<group>"; };
 		CE098F351FC4FA1E00F0AAA1 /* PostcardPrinter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PostcardPrinter.cpp; sourceTree = "<group>"; };
 		CE098F361FC4FA1E00F0AAA1 /* PostcardPrinter.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PostcardPrinter.hpp; sourceTree = "<group>"; };
+		CE098F8E1FC6BF7F00F0AAA1 /* CameraObcViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraObcViewController.h; sourceTree = "<group>"; };
+		CE098F8F1FC6BF7F00F0AAA1 /* CameraObcViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraObcViewController.m; sourceTree = "<group>"; };
+		CE098F911FC6C11400F0AAA1 /* MediaToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaToolbox.framework; path = System/Library/Frameworks/MediaToolbox.framework; sourceTree = SDKROOT; };
+		CE098F921FC6C11500F0AAA1 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		CE098F981FC6CE5C00F0AAA1 /* SubImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubImageView.h; sourceTree = "<group>"; };
+		CE098F991FC6CE5C00F0AAA1 /* SubImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubImageView.m; sourceTree = "<group>"; };
+		CE098F9B1FC6D9E100F0AAA1 /* SubImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubImageViewController.h; sourceTree = "<group>"; };
+		CE098F9C1FC6D9E100F0AAA1 /* SubImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubImageViewController.m; sourceTree = "<group>"; };
 		CEEDBB5C1FC1D8000062DCAF /* opencv_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opencv_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDBB611FC1D8000062DCAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +132,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE098F931FC6C11500F0AAA1 /* MediaToolbox.framework in Frameworks */,
+				CE098F941FC6C11500F0AAA1 /* MediaPlayer.framework in Frameworks */,
 				CE098F271FC317F000F0AAA1 /* QuartzCore.framework in Frameworks */,
 				CE098F251FC317E500F0AAA1 /* CoreGraphics.framework in Frameworks */,
 				CE098F231FC317DD00F0AAA1 /* Foundation.framework in Frameworks */,
@@ -219,6 +234,8 @@
 		CE098F131FC3178B00F0AAA1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE098F921FC6C11500F0AAA1 /* MediaPlayer.framework */,
+				CE098F911FC6C11400F0AAA1 /* MediaToolbox.framework */,
 				CE098F261FC317F000F0AAA1 /* QuartzCore.framework */,
 				CE098F241FC317E500F0AAA1 /* CoreGraphics.framework */,
 				CE098F221FC317DD00F0AAA1 /* Foundation.framework */,
@@ -254,6 +271,19 @@
 			path = 05_PrintingPostcard;
 			sourceTree = "<group>";
 		};
+		CE098F8D1FC6BF5000F0AAA1 /* 80_Camera */ = {
+			isa = PBXGroup;
+			children = (
+				CE098F981FC6CE5C00F0AAA1 /* SubImageView.h */,
+				CE098F991FC6CE5C00F0AAA1 /* SubImageView.m */,
+				CE098F9B1FC6D9E100F0AAA1 /* SubImageViewController.h */,
+				CE098F9C1FC6D9E100F0AAA1 /* SubImageViewController.m */,
+				CE098F8E1FC6BF7F00F0AAA1 /* CameraObcViewController.h */,
+				CE098F8F1FC6BF7F00F0AAA1 /* CameraObcViewController.m */,
+			);
+			path = 80_Camera;
+			sourceTree = "<group>";
+		};
 		CEEDBB531FC1D8000062DCAF = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +311,7 @@
 				CE098F2F1FC4F88A00F0AAA1 /* 05_PrintingPostcard */,
 				CE04AB141FC1F9B80049163F /* 15_DetectingFacialFeatures */,
 				CE04AB161FC1FA7E0049163F /* 16_CvEffects */,
+				CE098F8D1FC6BF5000F0AAA1 /* 80_Camera */,
 				CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */,
 				CEEDBB611FC1D8000062DCAF /* ViewController.swift */,
 				CEEDBB631FC1D8000062DCAF /* Main.storyboard */,
@@ -388,6 +419,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE098F901FC6BF7F00F0AAA1 /* CameraObcViewController.m in Sources */,
 				CE098F2E1FC4E55900F0AAA1 /* DetectingFacesViewController.mm in Sources */,
 				CE098F371FC4FA1E00F0AAA1 /* PostcardPrinter.cpp in Sources */,
 				CE04AB021FC1E87B0049163F /* DisplayingImageViewController.swift in Sources */,
@@ -396,6 +428,8 @@
 				CE098F0E1FC1FE7300F0AAA1 /* FaceAnimator.cpp in Sources */,
 				CEEDBB621FC1D8000062DCAF /* ViewController.swift in Sources */,
 				CE098F111FC1FF3D00F0AAA1 /* test.cpp in Sources */,
+				CE098F9A1FC6CE5C00F0AAA1 /* SubImageView.m in Sources */,
+				CE098F9D1FC6D9E200F0AAA1 /* SubImageViewController.m in Sources */,
 				CE098EFB1FC1FC5B00F0AAA1 /* Processing.cpp in Sources */,
 				CE04AB101FC1F5640049163F /* LinkingOpenCvViewController.mm in Sources */,
 				CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */,
