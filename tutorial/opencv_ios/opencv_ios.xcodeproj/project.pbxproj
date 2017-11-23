@@ -45,6 +45,7 @@
 		CE098F941FC6C11500F0AAA1 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE098F921FC6C11500F0AAA1 /* MediaPlayer.framework */; };
 		CE098F9A1FC6CE5C00F0AAA1 /* SubImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F991FC6CE5C00F0AAA1 /* SubImageView.m */; };
 		CE098F9D1FC6D9E200F0AAA1 /* SubImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F9C1FC6D9E100F0AAA1 /* SubImageViewController.m */; };
+		CE098FA01FC73E0D00F0AAA1 /* CameraObcViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F9F1FC73E0B00F0AAA1 /* CameraObcViewController2.m */; };
 		CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */; };
 		CEEDBB621FC1D8000062DCAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB611FC1D8000062DCAF /* ViewController.swift */; };
 		CEEDBB651FC1D8000062DCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEDBB631FC1D8000062DCAF /* Main.storyboard */; };
@@ -118,6 +119,8 @@
 		CE098F991FC6CE5C00F0AAA1 /* SubImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubImageView.m; sourceTree = "<group>"; };
 		CE098F9B1FC6D9E100F0AAA1 /* SubImageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SubImageViewController.h; sourceTree = "<group>"; };
 		CE098F9C1FC6D9E100F0AAA1 /* SubImageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SubImageViewController.m; sourceTree = "<group>"; };
+		CE098F9E1FC73E0B00F0AAA1 /* CameraObcViewController2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraObcViewController2.h; sourceTree = "<group>"; };
+		CE098F9F1FC73E0B00F0AAA1 /* CameraObcViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraObcViewController2.m; sourceTree = "<group>"; };
 		CEEDBB5C1FC1D8000062DCAF /* opencv_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opencv_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDBB611FC1D8000062DCAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -280,6 +283,8 @@
 				CE098F9C1FC6D9E100F0AAA1 /* SubImageViewController.m */,
 				CE098F8E1FC6BF7F00F0AAA1 /* CameraObcViewController.h */,
 				CE098F8F1FC6BF7F00F0AAA1 /* CameraObcViewController.m */,
+				CE098F9E1FC73E0B00F0AAA1 /* CameraObcViewController2.h */,
+				CE098F9F1FC73E0B00F0AAA1 /* CameraObcViewController2.m */,
 			);
 			path = 80_Camera;
 			sourceTree = "<group>";
@@ -432,6 +437,7 @@
 				CE098F9D1FC6D9E200F0AAA1 /* SubImageViewController.m in Sources */,
 				CE098EFB1FC1FC5B00F0AAA1 /* Processing.cpp in Sources */,
 				CE04AB101FC1F5640049163F /* LinkingOpenCvViewController.mm in Sources */,
+				CE098FA01FC73E0D00F0AAA1 /* CameraObcViewController2.m in Sources */,
 				CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */,
 				CE098EFD1FC1FC5B00F0AAA1 /* Processing_NEON.cpp in Sources */,
 				CE098EFC1FC1FC5B00F0AAA1 /* Processing_Accelerate.cpp in Sources */,

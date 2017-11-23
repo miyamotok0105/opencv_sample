@@ -38,17 +38,16 @@ AVCaptureSession *captureSession;
         previewLayer.frame = self.view.bounds;
         [self.imageView.layer insertSublayer:previewLayer atIndex:0];
         
-
+        
     }
     
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    NSLog(@"subImageViewController");
-    SubImageViewController* subImageViewController = [[SubImageViewController alloc] init];
-    //    [self.view addSubview:subImageViewController];
-    [self presentViewController:subImageViewController animated:YES completion:nil];
+//    NSLog(@"subImageViewController");
+//    SubImageViewController* subImageViewController = [[SubImageViewController alloc] init];
+//    [self presentViewController:subImageViewController animated:YES completion:nil];
 }
 
 - (IBAction)btnCameraStart:(id)sender {
@@ -60,7 +59,53 @@ AVCaptureSession *captureSession;
     [captureSession stopRunning];
 }
 
-
+////delegateメソッド。各フレームにおける処理
+//- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection
+//{
+//    NSLog(@"captureOutput");
+//    // 画像の表示
+//    self.imageView.image = [self imageFromSampleBufferRef:sampleBuffer];
+//}
+//
+//// CMSampleBufferRefをUIImageへ
+//- (UIImage *)imageFromSampleBufferRef:(CMSampleBufferRef)sampleBuffer
+//{
+//    // イメージバッファの取得
+//    CVImageBufferRef    buffer;
+//    buffer = CMSampleBufferGetImageBuffer(sampleBuffer);
+//
+//    // イメージバッファのロック
+//    CVPixelBufferLockBaseAddress(buffer, 0);
+//    // イメージバッファ情報の取得
+//    uint8_t*    base;
+//    size_t      width, height, bytesPerRow;
+//    base = CVPixelBufferGetBaseAddress(buffer);
+//    width = CVPixelBufferGetWidth(buffer);
+//    height = CVPixelBufferGetHeight(buffer);
+//    bytesPerRow = CVPixelBufferGetBytesPerRow(buffer);
+//
+//    // ビットマップコンテキストの作成
+//    CGColorSpaceRef colorSpace;
+//    CGContextRef    cgContext;
+//    colorSpace = CGColorSpaceCreateDeviceRGB();
+//    cgContext = CGBitmapContextCreate(
+//                                      base, width, height, 8, bytesPerRow, colorSpace,
+//                                      kCGBitmapByteOrder32Little | kCGImageAlphaPremultipliedFirst);
+//    CGColorSpaceRelease(colorSpace);
+//
+//    // 画像の作成
+//    CGImageRef  cgImage;
+//    UIImage*    image;
+//    cgImage = CGBitmapContextCreateImage(cgContext);
+//    image = [UIImage imageWithCGImage:cgImage scale:1.0f
+//                          orientation:UIImageOrientationUp];
+//    CGImageRelease(cgImage);
+//    CGContextRelease(cgContext);
+//
+//    // イメージバッファのアンロック
+//    CVPixelBufferUnlockBaseAddress(buffer, 0);
+//    return image;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
