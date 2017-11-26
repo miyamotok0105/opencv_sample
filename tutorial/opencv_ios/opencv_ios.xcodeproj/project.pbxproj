@@ -48,7 +48,6 @@
 		CE098FA01FC73E0D00F0AAA1 /* CameraObcViewController2.m in Sources */ = {isa = PBXBuildFile; fileRef = CE098F9F1FC73E0B00F0AAA1 /* CameraObcViewController2.m */; };
 		CEAE0FA61FCA9F7900990098 /* CameraSwfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE0FA51FCA9F7900990098 /* CameraSwfViewController.swift */; };
 		CEAE0FA81FCAB85100990098 /* CameraFilterSwfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE0FA71FCAB85100990098 /* CameraFilterSwfViewController.swift */; };
-		CEAE0FAA1FCB0B1200990098 /* FaceDetectionSwfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAE0FA91FCB0B1200990098 /* FaceDetectionSwfViewController.swift */; };
 		CEEDBB601FC1D8000062DCAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */; };
 		CEEDBB621FC1D8000062DCAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEDBB611FC1D8000062DCAF /* ViewController.swift */; };
 		CEEDBB651FC1D8000062DCAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEEDBB631FC1D8000062DCAF /* Main.storyboard */; };
@@ -126,7 +125,6 @@
 		CE098F9F1FC73E0B00F0AAA1 /* CameraObcViewController2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraObcViewController2.m; sourceTree = "<group>"; };
 		CEAE0FA51FCA9F7900990098 /* CameraSwfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraSwfViewController.swift; sourceTree = "<group>"; };
 		CEAE0FA71FCAB85100990098 /* CameraFilterSwfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFilterSwfViewController.swift; sourceTree = "<group>"; };
-		CEAE0FA91FCB0B1200990098 /* FaceDetectionSwfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceDetectionSwfViewController.swift; sourceTree = "<group>"; };
 		CEEDBB5C1FC1D8000062DCAF /* opencv_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = opencv_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEDBB5F1FC1D8000062DCAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEEDBB611FC1D8000062DCAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -293,7 +291,6 @@
 				CE098F9F1FC73E0B00F0AAA1 /* CameraObcViewController2.m */,
 				CEAE0FA51FCA9F7900990098 /* CameraSwfViewController.swift */,
 				CEAE0FA71FCAB85100990098 /* CameraFilterSwfViewController.swift */,
-				CEAE0FA91FCB0B1200990098 /* FaceDetectionSwfViewController.swift */,
 			);
 			path = 80_Camera;
 			sourceTree = "<group>";
@@ -439,7 +436,6 @@
 				CE098F371FC4FA1E00F0AAA1 /* PostcardPrinter.cpp in Sources */,
 				CE04AB021FC1E87B0049163F /* DisplayingImageViewController.swift in Sources */,
 				CE04AB0A1FC1F2050049163F /* DisplayingImageObcViewController.m in Sources */,
-				CEAE0FAA1FCB0B1200990098 /* FaceDetectionSwfViewController.swift in Sources */,
 				CE098EF51FC1FB9F00F0AAA1 /* RetroFilter.cpp in Sources */,
 				CEAE0FA81FCAB85100990098 /* CameraFilterSwfViewController.swift in Sources */,
 				CE098F0E1FC1FE7300F0AAA1 /* FaceAnimator.cpp in Sources */,
