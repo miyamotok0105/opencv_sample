@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MAL-Vv-Ixw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="YhK-LW-qIw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -304,6 +304,147 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbq-24-5Yy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6542" y="6"/>
+        </scene>
+        <!--Camera Swf View Controller-->
+        <scene sceneID="mDQ-a8-IGc">
+            <objects>
+                <viewController id="QB1-sH-Pit" customClass="CameraSwfViewController" customModule="opencv_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VH6-fq-vgJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s8X-NS-c8e">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="516"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="kaz-kH-hWZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="s8X-NS-c8e" id="gih-Oc-mOn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QSi-Lq-W2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7325.6000000000004" y="-0.44977511244377816"/>
+        </scene>
+        <!--Camera Filter Swf View Controller-->
+        <scene sceneID="ugU-vl-JPN">
+            <objects>
+                <viewController id="q35-yf-8qI" customClass="CameraFilterSwfViewController" customModule="opencv_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zwO-vf-A34">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UIU-71-5qv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Ko-er-UN4">
+                                <rect key="frame" x="16" y="460" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="インスタント"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectInstantAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="7X8-tC-8zo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3t7-Hy-TdX">
+                                <rect key="frame" x="16" y="423" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="元画像"/>
+                                <connections>
+                                    <action selector="originalAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="see-N6-po8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u3L-he-Fcu">
+                                <rect key="frame" x="16" y="498" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="白黒"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectNoirAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="E5O-HI-6uE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Is2-Dq-Pi2">
+                                <rect key="frame" x="16" y="536" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="白黒２"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectTonalAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="wab-cj-cHR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EMd-Pt-bLG">
+                                <rect key="frame" x="16" y="567" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ビンテージ"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectTransferAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="Wt3-8P-LH1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IxY-lj-h4P">
+                                <rect key="frame" x="143" y="460" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="モノクロ"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectMonoAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="N17-cy-xUC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0pa-Rx-RAQ">
+                                <rect key="frame" x="16" y="599" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ビンテージ２"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectFadeAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="e2f-JK-UN8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JfF-yX-W3F">
+                                <rect key="frame" x="16" y="630" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ビンテージ３"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectProcessAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="n7s-WI-DOb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCb-id-XYU">
+                                <rect key="frame" x="143" y="423" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="ビンテージ４"/>
+                                <connections>
+                                    <action selector="cIPhotoEffectChromeAction:" destination="q35-yf-8qI" eventType="touchUpInside" id="0y8-Ny-R7l"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="Gsu-5b-dtl"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="UIU-71-5qv" id="0eQ-tq-ijJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TnF-YU-hsM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8087" y="-6"/>
+        </scene>
+        <!--Face Detection Swf View Controller-->
+        <scene sceneID="blM-jL-IJ8">
+            <objects>
+                <viewController id="YhK-LW-qIw" customClass="FaceDetectionSwfViewController" customModule="opencv_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CdP-WY-Edr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cjB-c8-Ysp">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="415"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="MhE-BP-lZh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSC-o2-Paa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8905" y="-15"/>
         </scene>
     </scenes>
 </document>
