@@ -20,3 +20,8 @@ gcc(g++)について
 https://www.sist.ac.jp/~suganuma/cpp/man/command/gcc.htm    
 
 
+
+# Special Thanks
+
+opencv python tutorial    
+https://github.com/makelove/OpenCV-Python-Tutorial    
