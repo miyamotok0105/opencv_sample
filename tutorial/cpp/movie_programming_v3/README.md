@@ -1,0 +1,8 @@
+
+
+
+
+```
+ffprobe hoge.mp4
+```
+
