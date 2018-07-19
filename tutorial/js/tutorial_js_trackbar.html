@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Trackbar Example</title>
+<!-- <link href="js_example_style.css" rel="stylesheet" type="text/css" /> -->
+</head>
+<body>
+<h2>Trackbar Example</h2>
+<p id="status">OpenCV.js is loading...</p>
+<div>
+<p class="err" id="errorMessage"></p>
+</div>
+<div>
+    <b>trackbar</b>
+    <input type="range" id="trackbar" value="50" min="0" max="100" step="1">
+    <!-- <input type="range" id="trackbar" disabled value="50" min="0" max="100" step="1"> -->
+    <label id="weightValue" >here</label>
+    <div>
+        <table cellpadding="0" cellspacing="0" width="0" border="0">
+        <tr>
+            <td>
+                <canvas id="canvasInput1" class="small"></canvas>
+            </td>
+            <td>
+                <canvas id="canvasInput2" class="small"></canvas>
+            </td>
+            <td>
+                <canvas id="canvasOutput" class="small"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="caption">canvasInput1</div>
+            </td>
+            <td>
+                <div class="caption">canvasInput2</div>
+            </td>
+            <td>
+                <div class="caption">canvasOutput</div>
+            </td>
+        </tr>
+        </table>
+    </div>
+</div>
+
+<script id="codeSnippet" type="text/code-snippet">
+
+
+
+</script>
+<script type="text/javascript">
+
+let trackbar = document.getElementById('trackbar');
+let alpha = trackbar.value/trackbar.max;
+
+console.log(trackbar.value);
+
+let weightValue = document.getElementById('weightValue');
+weightValue.innerText = trackbar.value;
+trackbar.addEventListener('input', () => {
+    weightValue.innerText = trackbar.value;
+});
+
+function loadImageToCanvas(url, cavansId) {
+    let canvas = document.getElementById(cavansId);
+    let ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+    };
+    img.src = url;
+};
+
+loadImageToCanvas('apple.jpg', 'canvasInput1');
+loadImageToCanvas('orange.jpg', 'canvasInput2');
+
+function grayscale(imgElement){
+  let mat = cv.imread(imgElement);
+  var dst = new cv.Mat();
+  cv.cvtColor(mat, dst, cv.COLOR_RGBA2GRAY, 0);
+  cv.imshow('canvasOutput', dst);
+  mat.delete();
+  dst.delete();
+}
+
+function onOpenCvReady() {
+  document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
+}
+</script>
+<script async src=".\opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+</body>
+</html>
