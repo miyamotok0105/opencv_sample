@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Hello OpenCV.js</title>
+</head>
+<body>
+<h2>Hello OpenCV.js</h2>
+<p id="status">OpenCV.js is loading...</p>
+<div>
+  <div class="inputoutput">
+    <h2>image</h2>
+    <div class="caption">imageSrc <input type="file" id="fileInput1" name="file" />
+    <input type="button" value="resizeImage canvasInput1" onClick="resizeImage('canvasInput1', 'canvasInput1')">
+    </div>
+    <canvas id="canvasInput1" ></canvas>
+
+    <h2>template</h2>
+    <div class="caption">imageSrc <input type="file" id="fileInput2" name="file" />
+    <input type="button" value="resizeImage canvasInput2" onClick="resizeImage('canvasInput2', 'canvasInput2')">
+    </div>
+    <canvas id="canvasInput2" ></canvas>
+  </div>
+  <div class="inputoutput">
+    <canvas id="canvasOutput" ></canvas>
+    <div class="caption">canvasOutput</div>
+  </div>
+</div>
+<input type="button" value="templateMatch" onClick="templateMatch()">
+
+<script type="text/javascript">
+
+let scale = 0.3;
+
+function resizeImage(inputId, outputId) {
+    let src = cv.imread(inputId);
+    let w = src.size().width*scale;
+    let h = src.size().height*scale;
+    let dst = new cv.Mat();
+    let dsize = new cv.Size(w, h);
+    cv.resize(src, dst, dsize, 0, 0, cv.INTER_AREA);
+    cv.imshow(outputId, dst);
+    src.delete(); dst.delete();
+}
+
+function loadImageToCanvas(url, cavansId) {
+    let canvas = document.getElementById(cavansId);
+    let ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+    };
+    img.src = url;
+};
+
+
+let inputElement1 = document.getElementById('fileInput1');
+inputElement1.addEventListener('change', (e) => {
+  let url = URL.createObjectURL(e.target.files[0]);
+  loadImageToCanvas(url, 'canvasInput1');
+  // resizeImage('canvasInput1', 'canvasInput1');
+}, false);
+let inputElement2 = document.getElementById('fileInput2');
+inputElement2.addEventListener('change', (e) => {
+  let url = URL.createObjectURL(e.target.files[0]);
+  loadImageToCanvas(url, 'canvasInput2');
+  // resizeImage('canvasInput2', 'canvasInput2');
+}, false);
+
+function templateMatch() {
+    let src = cv.imread('canvasInput1');
+    let templ = cv.imread('canvasInput2');
+    let dst = new cv.Mat();
+    let mask = new cv.Mat();
+    cv.matchTemplate(src, templ, dst, cv.TM_CCOEFF, mask);
+    let result = cv.minMaxLoc(dst, mask);
+    let maxPoint = result.maxLoc;
+    let color = new cv.Scalar(255, 0, 0, 255);
+    let point = new cv.Point(maxPoint.x + templ.cols, maxPoint.y + templ.rows);
+    cv.rectangle(src, maxPoint, point, color, 2, cv.LINE_8, 0);
+    cv.imshow('canvasOutput', src);
+    src.delete(); dst.delete(); mask.delete();
+}
+
+
+function onOpenCvReady() {
+  document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
+}
+</script>
+<script async src="opencv.js" onload="onOpenCvReady();" type="text/javascript"></script>
+</body>
+</html>
