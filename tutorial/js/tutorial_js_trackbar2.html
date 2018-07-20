@@ -1,0 +1,169 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Trackbar Example</title>
+<!-- <link href="js_example_style.css" rel="stylesheet" type="text/css" /> -->
+</head>
+<body>
+<h2>Trackbar Example</h2>
+<p id="status">OpenCV.js is loading...</p>
+<div>
+<p class="err" id="errorMessage"></p>
+</div>
+<textarea class="code" rows="12" cols="80" id="codeEditor" spellcheck="false">
+</textarea>
+<div>
+    <b>trackbar</b>
+    <!-- <input type="range" id="trackbar" value="50" min="0" max="100" step="1"> -->
+    <input type="range" id="trackbar" disabled value="50" min="0" max="100" step="1">
+    <label id="weightValue" >here</label>
+    <div>
+        <table cellpadding="0" cellspacing="0" width="0" border="0">
+        <tr>
+            <td>
+                <canvas id="canvasInput1" class="small"></canvas>
+            </td>
+            <td>
+                <canvas id="canvasInput2" class="small"></canvas>
+            </td>
+            <td>
+                <canvas id="canvasOutput" class="small"></canvas>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="caption">canvasInput1</div>
+            </td>
+            <td>
+                <div class="caption">canvasInput2</div>
+            </td>
+            <td>
+                <div class="caption">canvasOutput</div>
+            </td>
+        </tr>
+        </table>
+    </div>
+</div>
+
+<script id="codeSnippet" type="text/code-snippet">
+let trackbar = document.getElementById('trackbar');
+let alpha = trackbar.value/trackbar.max;
+let beta = ( 1.0 - alpha );
+let src1 = cv.imread('canvasInput1');
+let src2 = cv.imread('canvasInput2');
+let dst = new cv.Mat();
+cv.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);
+cv.imshow('canvasOutput', dst);
+dst.delete();
+src1.delete();
+src2.delete();
+</script>
+
+<script type="text/javascript">
+
+const errorOutputId = 'errorMessage';
+errorOutput = document.getElementById(errorOutputId);
+const OPENCV_URL = 'opencv.js';
+loadOpenCv = function(onloadCallback) {
+    let script = document.createElement('script');
+    script.setAttribute('async', '');
+    script.setAttribute('type', 'text/javascript');
+    script.addEventListener('load', () => {
+        // console.log(cv.getBuildInformation());
+        onloadCallback();
+    });
+    script.addEventListener('error', () => {
+        self.printError('Failed to load ' + OPENCV_URL);
+    });
+    script.src = OPENCV_URL;
+    let node = document.getElementsByTagName('script')[0];
+    node.parentNode.insertBefore(script, node);
+};
+
+loadOpenCv(() => {
+    trackbar.removeAttribute('disabled');
+    executeCode('codeEditor');
+});
+
+printError = function(err) {
+    if (typeof err === 'undefined') {
+        err = '';
+    } else if (typeof err === 'number') {
+        if (!isNaN(err)) {
+            if (typeof cv !== 'undefined') {
+                err = 'Exception: ' + cv.exceptionFromPtr(err).msg;
+            }
+        }
+    } else if (typeof err === 'string') {
+        let ptr = Number(err.split(' ')[0]);
+        if (!isNaN(ptr)) {
+            if (typeof cv !== 'undefined') {
+                err = 'Exception: ' + cv.exceptionFromPtr(ptr).msg;
+            }
+        }
+    } else if (err instanceof Error) {
+        err = err.stack.replace(/\n/g, '<br>');
+    }
+    errorOutput.innerHTML = err;
+};
+
+loadCode = function(scriptId, textAreaId) {
+    let scriptNode = document.getElementById(scriptId);
+    let textArea = document.getElementById(textAreaId);
+    if (scriptNode.type !== 'text/code-snippet') {
+        throw Error('Unknown code snippet type');
+    }
+    textArea.value = scriptNode.text.replace(/^\n/, '');
+};
+
+executeCode = function(textAreaId) {
+    try {
+        clearError();
+        let code = document.getElementById(textAreaId).value;
+        eval(code);
+    } catch (err) {
+        printError(err);
+    }
+};
+
+clearError = function() {
+    errorOutput.innerHTML = '';
+};
+
+function loadImageToCanvas(url, cavansId) {
+    let canvas = document.getElementById(cavansId);
+    let ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+    };
+    img.src = url;
+};
+
+function grayscale(imgElement){
+  let mat = cv.imread(imgElement);
+  var dst = new cv.Mat();
+  cv.cvtColor(mat, dst, cv.COLOR_RGBA2GRAY, 0);
+  cv.imshow('canvasOutput', dst);
+  mat.delete();
+  dst.delete();
+}
+
+
+loadCode('codeSnippet', 'codeEditor');
+loadImageToCanvas('apple.jpg', 'canvasInput1');
+loadImageToCanvas('orange.jpg', 'canvasInput2');
+
+
+function onOpenCvReady() {
+  document.getElementById('status').innerHTML = 'OpenCV.js is ready.';
+}
+</script>
+
+</body>
+</html>

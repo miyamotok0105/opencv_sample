@@ -11,10 +11,11 @@
     <input type="range" id="trackbar" value="0" min="0" max="2" step="1">
     <!-- <input type="range" id="trackbar" disabled value="50" min="0" max="100" step="1"> -->
     <label id="weightValue" >here</label>
-  <input type="button" value="gradients" onClick="sobel()">
+  <input type="button" value="gradients" onClick="exec2()">
   <div class="inputoutput">
-    <img id="imageSrc" alt="No Image" />
-    <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div>
+    <canvas id="canvasInput1" class="small"></canvas>
+    <!-- <img id="imageSrc" alt="No Image" /> -->
+    <!-- <div class="caption">imageSrc <input type="file" id="fileInput" name="file" /></div> -->
   </div>
   <div class="inputoutput">
     <canvas id="canvasOutput1" ></canvas>
@@ -26,29 +27,56 @@
   </div>
 </div>
 <script type="text/javascript">
-let imgElement = document.getElementById('imageSrc');
-let inputElement = document.getElementById('fileInput');
-inputElement.addEventListener('change', (e) => {
-  imgElement.src = URL.createObjectURL(e.target.files[0]);
-}, false);
-imgElement.onload = function() {
-    setTimeout(()=>{
-            (()=>{
-                  let mat = cv.imread(imgElement);
-                  cv.imshow('canvasOutput1', mat);
-                  mat.delete();
-                  mat = cv.imread(imgElement);
-                  cv.imshow('canvasOutput2', mat);
-                  mat.delete();
-                  mat = cv.imread(imgElement);
-                  cv.imshow('canvasOutput3', mat);
-                  mat.delete();
-                  // sobel();
-            })();
-    },3000);
+let trackbar = document.getElementById('trackbar');
+trackbar.addEventListener('input', () => {
+    try {
+        exec();
+    } catch (err) {
+        console.log("error");
+    }
+});
 
+let weightValue = document.getElementById('weightValue');
+weightValue.innerText = trackbar.value;
+trackbar.addEventListener('input', () => {
+    weightValue.innerText = trackbar.value;
+});
+
+function exec() {
+    let p1 = parseInt(trackbar.value, 10);
+    console.log(p1);
+}
+
+// function exec2(p1) {
+//     let trackbar = document.getElementById('trackbar');
+//     let alpha = trackbar.value/trackbar.max;
+//     let beta = ( 1.0 - alpha );
+//     let src1 = cv.imread('canvasInput1');
+//     let src2 = cv.imread('canvasInput2');
+//     let dst = new cv.Mat();
+//     cv.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);
+//     cv.imshow('canvasOutput', dst);
+//     dst.delete();
+//     src1.delete();
+//     src2.delete();
+// };
+
+function exec2() {
+    let trackbar = document.getElementById('trackbar');
+    // let alpha = trackbar.value/trackbar.max;
+    // let beta = ( 1.0 - alpha );
+    let p1 = parseInt(trackbar.value, 10);
+
+    let src = cv.imread('canvasInput1');
+    let dst = new cv.Mat();
+    cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
+    // cv.Sobel(src, dst, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
+    cv.Sobel(src, dst, cv.CV_8U, 1, 0, 0, 0, 0, cv.BORDER_DEFAULT);
+    // cv.Sobel(src, dst, cv.CV_8U, p1, p1, p1, p1, p1, cv.BORDER_DEFAULT);
+    cv.imshow('canvasOutput1', dst);
+    dst.delete();
+    src.delete();
 };
-
 
 function sobel() {
     let src = cv.imread(imgElement);
@@ -56,11 +84,8 @@ function sobel() {
     let dst2 = new cv.Mat();
     let dst3 = new cv.Mat();
     cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
-    
-    // cv.Sobel(src, dst1, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
-    cv.Sobel(src, dst1, cv.CV_8U, p1, p1, p1, p1, p1, cv.BORDER_DEFAULT);
-    todo!!!　ここを動くようにしたい！！
-    
+    cv.Sobel(src, dst1, cv.CV_8U, 1, 0, 3, 1, 0, cv.BORDER_DEFAULT);
+    // cv.Sobel(src, dst1, cv.CV_8U, p1, p1, p1, p1, p1, cv.BORDER_DEFAULT);
     // cv.Sobel(src, dsty, cv.CV_8U, 0, 1, 3, 1, 0, cv.BORDER_DEFAULT);
     cv.Scharr(src, dst2, cv.CV_8U, 1, 0, 1, 0, cv.BORDER_DEFAULT);
     cv.Scharr(src, dst3, cv.CV_8U, 0, 1, 1, 0, cv.BORDER_DEFAULT);
@@ -72,34 +97,20 @@ function sobel() {
     src.delete();
 };
 
-// function sobel_by_param(p1, p2, p3, p4, p5) {
-//     let src = cv.imread(imgElement);
-//     let dst1 = new cv.Mat();
-//     let dst2 = new cv.Mat();
-//     let dst3 = new cv.Mat();
-//     cv.cvtColor(src, src, cv.COLOR_RGB2GRAY, 0);
-//     cv.Sobel(src, dst1, cv.CV_8U, p1, p2, p3, p1, p1, cv.BORDER_DEFAULT);
-//     // cv.Sobel(src, dsty, cv.CV_8U, 0, 1, 3, 1, 0, cv.BORDER_DEFAULT);
-//     cv.Scharr(src, dst2, cv.CV_8U, 1, 0, 1, 0, cv.BORDER_DEFAULT);
-//     cv.Scharr(src, dst3, cv.CV_8U, 0, 1, 1, 0, cv.BORDER_DEFAULT);
-//     cv.imshow('canvasOutput1', dst1);
-//     cv.imshow('canvasOutput2', dst2);
-//     cv.imshow('canvasOutput3', dst3);
-//     dst1.delete();
-//     dst2.delete(); dst3.delete();
-//     src.delete();
-// };
+function loadImageToCanvas(url, cavansId) {
+    let canvas = document.getElementById(cavansId);
+    let ctx = canvas.getContext('2d');
+    let img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function() {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+    };
+    img.src = url;
+};
 
-
-let trackbar = document.getElementById('trackbar');
-let weightValue = document.getElementById('weightValue');
-weightValue.innerText = trackbar.value;
-trackbar.addEventListener('input', () => {
-    weightValue.innerText = trackbar.value;
-});
-
-let p1 = parseInt(trackbar.value, 10);
-console.log(p1);
+loadImageToCanvas('apple.jpg', 'canvasInput1');
 
 
 // function wait() {

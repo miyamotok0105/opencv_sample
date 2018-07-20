@@ -8,6 +8,7 @@
 </head>
 <body>
 <h2>Trackbar Example</h2>
+<p>ちょっと待たないと動かないかも。</p>
 <p id="status">OpenCV.js is loading...</p>
 <div>
 <p class="err" id="errorMessage"></p>
@@ -53,15 +54,33 @@
 <script type="text/javascript">
 
 let trackbar = document.getElementById('trackbar');
-let alpha = trackbar.value/trackbar.max;
-
-console.log(trackbar.value);
+trackbar.addEventListener('input', () => {
+    try {
+        exec();
+    } catch (err) {
+        console.log("error");
+    }
+});
 
 let weightValue = document.getElementById('weightValue');
 weightValue.innerText = trackbar.value;
 trackbar.addEventListener('input', () => {
     weightValue.innerText = trackbar.value;
 });
+
+function exec() {
+    let trackbar = document.getElementById('trackbar');
+    let alpha = trackbar.value/trackbar.max;
+    let beta = ( 1.0 - alpha );
+    let src1 = cv.imread('canvasInput1');
+    let src2 = cv.imread('canvasInput2');
+    let dst = new cv.Mat();
+    cv.addWeighted( src1, alpha, src2, beta, 0.0, dst, -1);
+    cv.imshow('canvasOutput', dst);
+    dst.delete();
+    src1.delete();
+    src2.delete();
+};
 
 function loadImageToCanvas(url, cavansId) {
     let canvas = document.getElementById(cavansId);
