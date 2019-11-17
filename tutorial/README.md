@@ -25,3 +25,8 @@ https://www.codepool.biz/opencv-line-detection.html
 https://github.com/DynamsoftRD/opencv-programming
 
 
+
+# ハフ変換
+
+綺麗に検出できてる
+https://www.pynote.info/entry/hough-transform-detect-lines
